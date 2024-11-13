@@ -7,8 +7,8 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
         android:background="@color/black"
+        android:orientation="vertical"
         android:padding="12dp">
 
         <!-- Card para el control de Bluetooth -->
@@ -16,9 +16,9 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="12dp"
-            app:cardElevation="6dp"
+            app:cardBackgroundColor="#FFFFFF"
             app:cardCornerRadius="8dp"
-            app:cardBackgroundColor="#FFFFFF">
+            app:cardElevation="6dp">
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -30,8 +30,8 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Control de Bluetooth"
-                    android:textSize="18sp"
                     android:textColor="#333333"
+                    android:textSize="18sp"
                     android:textStyle="bold" />
 
                 <Switch
@@ -55,15 +55,15 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="12dp"
-            app:cardElevation="8dp"
+            app:cardBackgroundColor="#00BCD4"
             app:cardCornerRadius="16dp"
-            app:cardBackgroundColor="#00BCD4">
+            app:cardElevation="8dp">
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal"
                 android:gravity="center"
+                android:orientation="horizontal"
                 android:weightSum="2">
 
                 <!-- Primer LinearLayout para Temperatura -->
@@ -71,8 +71,8 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:orientation="vertical"
                     android:gravity="center"
+                    android:orientation="vertical"
                     android:padding="16dp">
 
                     <!-- Icono de temperatura -->
@@ -87,8 +87,8 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Temperatura Actual"
-                        android:textSize="18sp"
                         android:textColor="#FFFFFF"
+                        android:textSize="18sp"
                         android:textStyle="bold" />
 
                     <!-- Temperatura -->
@@ -96,19 +96,19 @@
                         android:id="@+id/tv_temperature"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
                         android:text="0°C"
-                        android:textSize="32sp"
                         android:textColor="#FFFFFF"
-                        android:textStyle="bold"
-                        android:layout_marginTop="8dp"/>
+                        android:textSize="32sp"
+                        android:textStyle="bold" />
                 </LinearLayout>
 
                 <LinearLayout
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:orientation="vertical"
                     android:gravity="center"
+                    android:orientation="vertical"
                     android:padding="16dp">
 
                     <ImageView
@@ -121,19 +121,19 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Humedad Actual"
-                        android:textSize="18sp"
                         android:textColor="#FFFFFF"
+                        android:textSize="18sp"
                         android:textStyle="bold" />
 
                     <TextView
                         android:id="@+id/tv_humedad"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
                         android:text="0%"
-                        android:textSize="32sp"
                         android:textColor="#FFFFFF"
-                        android:textStyle="bold"
-                        android:layout_marginTop="8dp" />
+                        android:textSize="32sp"
+                        android:textStyle="bold" />
                 </LinearLayout>
 
             </LinearLayout>
@@ -144,76 +144,111 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="12dp"
-            app:cardElevation="6dp"
+            app:cardBackgroundColor="#FFFFFF"
             app:cardCornerRadius="8dp"
-            app:cardBackgroundColor="#FFFFFF">
+            app:cardElevation="6dp">
 
             <LinearLayout
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:padding="12dp">
+                android:orientation="horizontal">
 
-                <TextView
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="12dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Control de LEDs"
+                        android:textColor="#333333"
+                        android:textSize="18sp"
+                        android:textStyle="bold" />
+
+                    <Switch
+                        android:id="@+id/switch_leds_casa"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:text="LEDs Casa" />
+
+                    <Switch
+                        android:id="@+id/switch_leds_granero"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:text="LEDs Granero" />
+
+                    <Switch
+                        android:id="@+id/switch_leds_piscina"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:text="LEDs Piscina" />
+                </LinearLayout>
+
+                <LinearLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Control de LEDs"
-                    android:textSize="18sp"
-                    android:textColor="#333333"
-                    android:textStyle="bold" />
+                    android:layout_gravity="center"
+                    android:layout_marginStart="20dp">
 
-                <Switch
-                    android:id="@+id/switch_leds_casa"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="8dp"
-                    android:text="LEDs Casa" />
-
-                <Switch
-                    android:id="@+id/switch_leds_granero"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="8dp"
-                    android:text="LEDs Granero" />
-
-                <Switch
-                    android:id="@+id/switch_leds_piscina"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="8dp"
-                    android:text="LEDs Piscina" />
+                    <ImageView
+                        android:layout_width="130dp"
+                        android:layout_height="130dp"
+                        android:src="@drawable/casa_ecologica"/>
+                </LinearLayout>
             </LinearLayout>
         </androidx.cardview.widget.CardView>
 
-        <!-- Card para el control de Bomba de Agua -->
         <androidx.cardview.widget.CardView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="12dp"
-            app:cardElevation="6dp"
+            app:cardBackgroundColor="#FFFFFF"
             app:cardCornerRadius="8dp"
-            app:cardBackgroundColor="#FFFFFF">
+            app:cardElevation="6dp">
 
             <LinearLayout
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:padding="12dp">
+                android:orientation="horizontal">
 
-                <TextView
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="12dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Control de Bomba de Agua"
+                        android:textColor="#333333"
+                        android:textSize="18sp"
+                        android:textStyle="bold" />
+
+                    <Switch
+                        android:id="@+id/switch_pump"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:text="Encender/Apagar Bomba" />
+                </LinearLayout>
+
+                <LinearLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Control de Bomba de Agua"
-                    android:textSize="18sp"
-                    android:textColor="#333333"
-                    android:textStyle="bold" />
+                    android:layout_marginStart="10dp"
+                    android:layout_gravity="center">
 
-                <Switch
-                    android:id="@+id/switch_pump"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="8dp"
-                    android:text="Encender/Apagar Bomba" />
+                    <ImageView
+                        android:layout_width="80dp"
+                        android:layout_height="80dp"
+                        android:src="@drawable/motor_electrico" />
+                </LinearLayout>
             </LinearLayout>
         </androidx.cardview.widget.CardView>
 
@@ -222,9 +257,9 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="12dp"
-            app:cardElevation="6dp"
+            app:cardBackgroundColor="#FFFFFF"
             app:cardCornerRadius="8dp"
-            app:cardBackgroundColor="#FFFFFF">
+            app:cardElevation="6dp">
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -236,15 +271,15 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Control de Puertas"
-                    android:textSize="18sp"
                     android:textColor="#333333"
+                    android:textSize="18sp"
                     android:textStyle="bold" />
 
                 <LinearLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    android:layout_marginTop="8dp">
+                    android:layout_marginTop="8dp"
+                    android:orientation="horizontal">
 
                     <Button
                         android:id="@+id/btn_close_fingerprint_door"
@@ -259,6 +294,7 @@
                         android:id="@+id/switch_granero_door"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:layout_marginBottom="20dp"
                         android:text="Puerta Granero" />
                 </LinearLayout>
             </LinearLayout>
@@ -268,14 +304,15 @@
         <androidx.cardview.widget.CardView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:cardElevation="6dp"
+            app:cardBackgroundColor="#FFFFFF"
             app:cardCornerRadius="8dp"
-            app:cardBackgroundColor="#FFFFFF">
+            app:cardElevation="6dp">
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="vertical"
+                android:orientation="horizontal"
+                android:gravity="center_horizontal"
                 android:padding="12dp">
 
                 <Button
@@ -286,6 +323,11 @@
                     android:backgroundTint="@color/colorPrimary"
                     android:text="Registrar Huella"
                     android:textColor="@color/white" />
+
+                <ImageView
+                    android:layout_width="60dp"
+                    android:layout_height="60dp"
+                    android:src="@drawable/biometrico"/>
             </LinearLayout>
         </androidx.cardview.widget.CardView>
 
