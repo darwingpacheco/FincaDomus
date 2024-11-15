@@ -37,7 +37,7 @@ public class MainActivity extends AppCompatActivity {
     private ListView lvDevices;
     private ArrayList<BluetoothDevice> devices;
     private InputStream inputStream;
-    private TextView tv_temperature;
+    private TextView tv_temperature, tv_humedad;
     private Handler handler = new Handler(Looper.getMainLooper());
     private Switch switchBluetooth, switchLedsCasa, switchLedsGranero, switchLedsPiscina, switchPump, switchGraneroDoor;
     private Button btnRegisterFingerprint, btnCloseFingerprintDoor;
@@ -72,6 +72,7 @@ public class MainActivity extends AppCompatActivity {
         btnRegisterFingerprint = findViewById(R.id.btn_register_fingerprint);
         btnCloseFingerprintDoor = findViewById(R.id.btn_close_fingerprint_door);
         tv_temperature = findViewById(R.id.tv_temperature);
+        tv_humedad = findViewById(R.id.tv_humedad);
 
         startListeningForData();
         setupBluetoothSwitch();
@@ -218,6 +219,8 @@ public class MainActivity extends AppCompatActivity {
 
                         if (receivedData.contains("temperatura"))
                             handler.post(() -> tv_temperature.setText(receivedData.replace("temperatura", "")));
+                        else if (receivedData.contains("humedad"))
+                            handler.post(() -> tv_humedad.setText(receivedData.replace("humedad", "")));
 
                     }
                 } catch (IOException e) {
