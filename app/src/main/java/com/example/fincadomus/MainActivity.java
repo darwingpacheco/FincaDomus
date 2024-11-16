@@ -221,6 +221,7 @@ public class MainActivity extends AppCompatActivity {
 
             while (bluetoothSocket != null && bluetoothSocket.isConnected()) {
                 try {
+                    inputStream = bluetoothSocket.getInputStream();
                     if ((bytes = inputStream.read(buffer)) > 0) {
                         String receivedData = new String(buffer, 0, bytes);
 
