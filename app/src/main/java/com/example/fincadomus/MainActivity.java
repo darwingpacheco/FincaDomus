@@ -218,18 +218,29 @@ public class MainActivity extends AppCompatActivity {
         new Thread(() -> {
             byte[] buffer = new byte[1024];
             int bytes;
+            StringBuilder receivedDataBuilder = new StringBuilder();
 
             while (bluetoothSocket != null && bluetoothSocket.isConnected()) {
                 try {
                     inputStream = bluetoothSocket.getInputStream();
                     if ((bytes = inputStream.read(buffer)) > 0) {
-                        String receivedData = new String(buffer, 0, bytes);
 
-                        if (receivedData.contains("temperatura"))
-                            handler.post(() -> tv_temperature.setText(receivedData.replace("temperatura", "")));
-                        else if (receivedData.contains("humedad"))
-                            handler.post(() -> tv_humedad.setText(receivedData.replace("humedad", "")));
+                        String receivedChunk = new String(buffer, 0, bytes);
+                        receivedDataBuilder.append(receivedChunk);
 
+                        int endIndex;
+                        while ((endIndex = receivedDataBuilder.indexOf("\n")) != -1) {
+                            String message = receivedDataBuilder.substring(0, endIndex).trim();
+                            receivedDataBuilder.delete(0, endIndex + 1);
+
+                            if (message.contains("temperatura")) {
+                                String temperatura = message.replace("temperatura", "").trim() + " °C";
+                                handler.post(() -> tv_temperature.setText(temperatura));
+                            } else if (message.contains("humedad")) {
+                                String humedad = message.replace("humedad", "").trim() + " %";
+                                handler.post(() -> tv_humedad.setText(humedad));
+                            }
+                        }
                     }
                 } catch (IOException e) {
                     e.printStackTrace();
