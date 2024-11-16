@@ -80,6 +80,7 @@ public class MainActivity extends AppCompatActivity {
         setupCommandSwitchesAndButtons();
     }
 
+    @SuppressLint("MissingPermission")
     @Override
     protected void onResume() {
         super.onResume();
@@ -90,6 +91,12 @@ public class MainActivity extends AppCompatActivity {
                 | View.SYSTEM_UI_FLAG_HIDE_NAVIGATION
                 | View.SYSTEM_UI_FLAG_FULLSCREEN
                 | View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY);
+
+        if (bluetoothAdapter.isEnabled())
+            switchBluetooth.setChecked(true);
+        else
+            bluetoothAdapter.disable();
+        listDevices();
     }
 
     private void setupBluetoothSwitch() {
